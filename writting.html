@@ -1,0 +1,41 @@
+<!-- writting txt files using javascript -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> writting text file with javascript</title>
+</head>
+<body>
+    <h1 style="font-family: 'Courier New', Courier, monospace;">Create a text file using javascript</h1>
+    <p> Enter the file content: ...</p>
+    <textarea> </textarea>
+    <br/> 
+
+    <button onclick = "downloadFile()"> SAVE FILE</button>
+    
+
+    <!-- coding javascript  -->
+    <!-- Output == when you click the 'SAVE FILE' button after typing anything into the textbox bellow, 
+    it will automatically save a txt file based on the text you wrote inside of the -->
+    <script>
+        const downloadFile = () => {
+         const link = document.createElement("a");
+         const content = document.querySelector("textarea").value;
+         const file = new Blob([content], { type: 'text/plain' });
+         link.href = URL.createObjectURL(file);
+         link.download = "sample.txt";
+         link.click();
+         URL.revokeObjectURL(link.href);
+      };
+
+
+    </script>
+    
+</body>
+</html>
+
+<!-- thuis is the first time i've discovered a html function to create a txt 
+    file sung javascript, ut's quite interesting and makes it more convenient. 
+    and i prefer this method out of any more methods available -->

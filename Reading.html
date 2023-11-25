@@ -1,0 +1,40 @@
+<!-- reading txt files using javascript -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reading text file using javascript in html</title>
+</head>
+
+<body>
+    <center>
+        <input type="file" name="inputFileToRead" id="inputFileToRead" />
+        <br />
+  </center>
+
+  <h1> This is the result for reading the txt / text file </h1>
+
+  <img src="screenshot.png"> 
+    
+</body>
+
+<script>
+    document.getElementById("inputFileToRead")
+  .addEventListener("change", function () {
+    var fr = new FileReader();
+    fr.readAsText(this.files[0]);
+    fr.onload = function () {
+      console.log(fr.result);
+    };  
+  });
+</script>
+
+
+</html>
+
+<!-- this code works when you rightclick the 'inspect' button on your brwoser
+, then click the 'console' page, it will show up the text file that you have chosen from your device-->
+
+<!-- difficulties = you have to save the txt file specifically inside your html folder, or else it wont be able to read it-->
